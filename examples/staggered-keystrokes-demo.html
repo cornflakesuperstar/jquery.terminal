@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Staggered Keystrokes Demo for JQuery Terminal Emulator</title>
+    <meta name="author" content="Jason Kotchoff - kangarooit.com"/>
+    <meta name="Description" content="Demonstration for JQuery Terminal Emulator that includes an echo_with_keystroke_delays method."/>
+    <script src="../js/jquery-1.5.min.js"></script>
+    <script src="../js/jquery.mousewheel.min.js"></script>
+    <script src="../js/jquery.terminal-0.3.6.js"></script>
+    <link href="../css/jquery.terminal.css" rel="stylesheet"/>
+    <script>
+jQuery(document).ready(function($) {
+  $(document.documentElement).terminal(function(user_input, term) {
+    term.echo("you said: " + user_input)
+  }, {
+    greetings: 'The first prompt should be echoed to screen with random intervals between (simulated) keystrokes',
+    onInit: function(term) {
+      term.echo("This prompt currently behaves as per normal");
+    }
+    /*
+    onInit: function(term) {
+      term.echo_with_keystroke_delays("This message should appear character by character - almost as if someone is typing it!");
+    },
+    keystroke_max_delay_milliseconds: 400
+    */
+  });
+  $('body').css('display', 'none');
+});
+    </script>
+  </head>
+<body>
+</body>
